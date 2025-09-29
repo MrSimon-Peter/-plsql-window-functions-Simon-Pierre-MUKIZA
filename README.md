@@ -125,3 +125,5 @@ Statista. (2024). Agriculture and Livestock Market Insights. https://www.statist
 FAO (Food and Agriculture Organization). (2023). Digital Agriculture for Development. https://www.fao.org/digital-agriculture/
 
 ResearchGate. (2023). The Role of Data Analytics in Modern Farming. https://www.researchgate.net/
+##  Academic Integrity
+ I hereby declare that this project is my own work. I understand the content fully and can explain or reproduce it if required.
