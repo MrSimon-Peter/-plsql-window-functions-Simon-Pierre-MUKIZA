@@ -98,4 +98,17 @@ SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,NTILE(4) OVER (ORDER
 CUME_DIST():-- CUME_DIST(): Shows the relative position of a customer in the distribution of revenues.
 SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,CUME_DIST() OVER (ORDER BY SUM(t.amount)) AS revenue_distribution FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names ORDER BY total_revenue;
 ```
+##Results Analysis
+```sql
+1. Descriptive, What happened?
 
+Sales grew overall, but some months dropped. A few customers brought in most of the revenue.
+
+2. Diagnostic, Why?
+
+The drops came from seasonal changes and supply issues. High sales came from loyal customers and busy regions.
+
+3. Prescriptive, What next?
+
+Keep strong ties with top buyers, prepare for high-demand seasons, and support small buyers to grow.
+```
