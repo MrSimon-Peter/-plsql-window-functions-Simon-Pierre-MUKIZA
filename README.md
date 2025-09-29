@@ -46,4 +46,16 @@ INSERT INTO transactions VALUES (3005, 04, 0004, DATE '2024-02-10', 30000);
 ROW_NUMBER():-- Assigns a unique sequential number to each customer ordered by total revenue (highest first).
 SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,ROW_NUMBER() OVER(ORDER BY SUM(t.amount) DESC) AS row_number FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
 ```
+```sql
+RANK():--Customers with the same total revenue share the same rank.
+SELECT  c.customer_id,c.names, SUM(t.amount) AS total_revenue,RANK() OVER(ORDER BY SUM(t.amount) DESC) AS rank_position FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
+```
+```sql
+DENSE_RANK():--Customers with the same total revenue share the same rank.
+SELECT c.customer_id, c.names,SUM(t.amount) AS total_revenue,DENSE_RANK() OVER(ORDER BY SUM(t.amount) DESC) AS dense_rank_position FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
+```
+```sql
+PERCENT_RANK():--Shows each customer’s relative standing as a percentage (0 to 1).
+SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,PERCENT_RANK() OVER(ORDER BY SUM(t.amount) DESC) AS percent_rank_position FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
+```
 
