@@ -41,4 +41,9 @@ INSERT INTO transactions VALUES (3004, 03, 0003, DATE '2024-02-05', 22000);
 INSERT INTO transactions VALUES (3005, 04, 0004, DATE '2024-02-10', 30000);
 ```
 ## Window Functions Implementation
+### 1.	Ranking Functions:
+```sql
+ROW_NUMBER():-- Assigns a unique sequential number to each customer ordered by total revenue (highest first).
+SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,ROW_NUMBER() OVER(ORDER BY SUM(t.amount) DESC) AS row_number FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
+```
 
