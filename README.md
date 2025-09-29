@@ -105,4 +105,23 @@ Sales grew overall, but some months dropped. A few customers brought in most of 
 The drops came from seasonal changes and supply issues. High sales came from loyal customers and busy regions.
 3. Prescriptive, What next?
 Keep strong ties with top buyers, prepare for high-demand seasons, and support small buyers to grow.
+## References
+Oracle. (2024). Oracle Database SQL Language Reference. https://docs.oracle.com/en/database/oracle/oracle-database/
 
+Oracle. (2024). PL/SQL User’s Guide and Reference. https://docs.oracle.com/en/database/oracle/oracle-database/pl-sql/
+
+PostgreSQL. (2024). Window Functions Documentation. https://www.postgresql.org/docs/current/tutorial-window.html
+
+GeeksforGeeks. (2024). SQL Window Functions – Examples and Use Cases. https://www.geeksforgeeks.org/sql-window-functions/
+
+TutorialsPoint. (2024). PL/SQL – Quick Guide. https://www.tutorialspoint.com/plsql/index.htm
+
+Mode Analytics. (2024). Intro to SQL Window Functions. https://mode.com/sql-tutorial/sql-window-functions/
+
+W3Schools. (2024). SQL Tutorial. https://www.w3schools.com/sql/
+
+Statista. (2024). Agriculture and Livestock Market Insights. https://www.statista.com/markets/424/agriculture/
+
+FAO (Food and Agriculture Organization). (2023). Digital Agriculture for Development. https://www.fao.org/digital-agriculture/
+
+ResearchGate. (2023). The Role of Data Analytics in Modern Farming. https://www.researchgate.net/
