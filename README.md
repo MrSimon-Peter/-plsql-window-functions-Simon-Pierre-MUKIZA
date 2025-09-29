@@ -1,6 +1,6 @@
 # -plsql-window-functions-Simon-Pierre-MUKIZA
 ## A modern livestock farm Project.
-### Project Overview
+## Project Overview
 This project implements PL/SQL window functions to analyze farm sales data. It models a modern livestock farm with customers, products, and transactions. The system provides insights such as top products, customer quartiles, sales growth, and moving averages.
 ### Problem Definition
 1.	Business Context: A modern livestock farm that houses cattle, goats, chickens, ducks, and turkeys in various locations.
@@ -12,7 +12,7 @@ This project implements PL/SQL window functions to analyze farm sales data. It m
 3.	Use LAG() to compare each month's sales to those of the prior month.
 4.	Use NTILE(4) to divide clients into four equal groups based on how much they bought.
 5.	Use AVG() OVER() to find the average sales for each product over a rolling 3-month period.
-### Database Schema
+## Database Schema
 ```sql
 CREATE TABLE customers ( Customer_id INT PRIMARY KEY, Names VARCHAR(100) NOT NULL, Region VARCHAR(100) NOT NULL );
 
@@ -40,4 +40,5 @@ INSERT INTO transactions VALUES (3002, 02, 0002, DATE '2024-01-18', 8000);
 INSERT INTO transactions VALUES (3004, 03, 0003, DATE '2024-02-05', 22000);
 INSERT INTO transactions VALUES (3005, 04, 0004, DATE '2024-02-10', 30000);
 ```
+## Window Functions Implementation
 
