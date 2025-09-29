@@ -58,4 +58,44 @@ SELECT c.customer_id, c.names,SUM(t.amount) AS total_revenue,DENSE_RANK() OVER(O
 PERCENT_RANK():--Shows each customer’s relative standing as a percentage (0 to 1).
 SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,PERCENT_RANK() OVER(ORDER BY SUM(t.amount) DESC) AS percent_rank_position FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names;
 ```
+### 2.	Aggregate:
+```sql
+SUM():-- SUM() with ROWS: Running total based on number of rows up to current row
+
+SELECT transaction_id,sale_date,amount,SUM(amount) OVER (ORDER BY sale_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_total_rows FROM transactions
+ORDER BY sale_date;
+```
+```sql
+AVG():-- AVG() with RANGE: Running average, considers value ranges.
+SELECT transaction_id,sale_date,amount,AVG(amount) OVER (ORDER BY sale_date RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_avg_range FROM transactions
+ORDER BY sale_date;
+```
+```sql
+MIN():-- MIN() with ROWS: Minimum sale value up to current row
+SELECT transaction_id,sale_date,amount,MIN(amount) OVER (ORDER BY sale_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS min_so_far FROM transactions ORDER BY sale_date;
+```
+```sql
+MAX():-- MAX() with RANGE: Maximum sale value up to current point, groups equal ORDER BY values together
+SELECT transaction_id,sale_date,amount,MAX(amount) OVER (ORDER BY sale_date RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS max_so_far FROM transactions ORDER BY sale_date;
+```
+### 3.	Navigation
+```sql
+LAG():-- LAG(): Shows the sales from the previous month for comparison.
+SELECT TO_CHAR(t.sale_date, 'YYYY-MM') AS month,SUM(t.amount) AS monthly_sales,LAG(SUM(t.amount)) OVER (ORDER BY TO_CHAR(t.sale_date, 'YYYY-MM')) AS prev_month_sales
+FROM transactions t GROUP BY TO_CHAR(t.sale_date, 'YYYY-MM') ORDER BY month;
+```
+```sql
+LEAD():-- LEAD(): Shows the sales from the following month
+SELECT TO_CHAR(t.sale_date, 'YYYY-MM') AS month,SUM(t.amount) AS monthly_sales,LEAD(SUM(t.amount)) OVER (ORDER BY TO_CHAR(t.sale_date, 'YYYY-MM')) AS next_month_sales
+FROM transactions t GROUP BY TO_CHAR(t.sale_date, 'YYYY-MM') ORDER BY month;
+```
+### 4.	Distribution
+```sql
+NTILE(4): -- NTILE(4): Splits customers into 4 groups
+SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,NTILE(4) OVER (ORDER BY SUM(t.amount)) AS revenue_quartile FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names ORDER BY total_revenue;
+```
+```sql
+CUME_DIST():-- CUME_DIST(): Shows the relative position of a customer in the distribution of revenues.
+SELECT c.customer_id,c.names,SUM(t.amount) AS total_revenue,CUME_DIST() OVER (ORDER BY SUM(t.amount)) AS revenue_distribution FROM customers c JOIN transactions t ON c.customer_id = t.customer_id GROUP BY c.customer_id, c.names ORDER BY total_revenue;
+```
 
