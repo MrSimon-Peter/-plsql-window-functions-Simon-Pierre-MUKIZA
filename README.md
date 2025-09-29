@@ -20,3 +20,24 @@ CREATE TABLE products ( Product_id  INT PRIMARY KEY, Name VARCHAR(100) NOT NULL,
 
 CREATE TABLE transactions (Transaction_id INT PRIMARY KEY, Customer_id    INT NOT NULL, Product_id     INT NOT NULL, Sale_date      DATE   NOT NULL, Amount DECIMAL(12,2) NOT NULL, FOREIGN KEY (Customer_id) REFERENCES customers(Customer_id), FOREIGN KEY (Product_id) REFERENCES products(Product_id) );
 ```
+### Insert into customers
+```sql INSERT INTO customers (Customer_id, Names, Region) VALUES (01, 'Simon Pierre', 'Kigali');
+INSERT INTO customers (Customer_id, Names, Region) VALUES (02, 'Alicia M', 'Musanze');
+INSERT INTO customers (Customer_id, Names, Region) VALUES (03, 'Peter Patrick', 'Rwamagana');
+INSERT INTO customers (Customer_id, Names, Region) VALUES (04, 'Grace N', 'Musanze');
+```
+### Insert into products
+``` sql
+INSERT INTO products (Product_id, Name, Category) VALUES (0001, 'Fresh Milk', 'Dairy');
+INSERT INTO products (Product_id, Name, Category) VALUES (0002, 'Goat Meat', 'Meat');
+INSERT INTO products (Product_id, Name, Category) VALUES (0003, 'Chicken Eggs', 'Poultry');
+INSERT INTO products (Product_id, Name, Category) VALUES (0004, 'Duck Meat', 'Meat');
+```
+### Insert into transaction
+``` sql
+INSERT INTO transactions VALUES (3001, 01, 0001, DATE '2024-01-15', 25000);
+INSERT INTO transactions VALUES (3002, 02, 0002, DATE '2024-01-18', 8000);
+INSERT INTO transactions VALUES (3004, 03, 0003, DATE '2024-02-05', 22000);
+INSERT INTO transactions VALUES (3005, 04, 0004, DATE '2024-02-10', 30000);
+```
+
