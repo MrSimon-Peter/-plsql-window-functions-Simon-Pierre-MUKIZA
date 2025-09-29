@@ -14,5 +14,7 @@ This project implements PL/SQL window functions to analyze farm sales data. It m
 5.	Use AVG() OVER() to find the average sales for each product over a rolling 3-month period.
 ### Database Schema
 CREATE TABLE customers ( Customer_id INT PRIMARY KEY, Names VARCHAR(100) NOT NULL, Region VARCHAR(100) NOT NULL );
+
 CREATE TABLE products ( Product_id  INT PRIMARY KEY, Name VARCHAR(100) NOT NULL, Category    VARCHAR(100)  NOT NULL );
+
 CREATE TABLE transactions (Transaction_id INT PRIMARY KEY, Customer_id    INT NOT NULL, Product_id     INT NOT NULL, Sale_date      DATE   NOT NULL, Amount DECIMAL(12,2) NOT NULL, FOREIGN KEY (Customer_id) REFERENCES customers(Customer_id), FOREIGN KEY (Product_id) REFERENCES products(Product_id) );
